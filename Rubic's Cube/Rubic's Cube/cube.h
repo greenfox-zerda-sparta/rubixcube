@@ -21,6 +21,6 @@ public:
   void rotate_down();
   void rotate_right();
   void roatate_left();
-  ~Cube()
+  ~Cube();
 };
 
