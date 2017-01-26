@@ -18,8 +18,8 @@ private:
   vector<int> back = {2, 2, 2, 2, 2, 2, 2, 2, 2}; // blue 2
   vector<int> right = {1, 1, 1, 1, 1, 1, 1, 1, 1}; // red 1
   vector<int> left = {3, 3, 3, 3, 3, 3 ,3, 3, 3}; // orange 3
-  void fill_faces_to_cube();
   void random_shuffle();
+  bool tr_back;
 
 public:
   Cube();
@@ -30,9 +30,11 @@ public:
   void rotate_right();
   void rotate_left();
   void draw_cube();
+  void fill_faces_to_cube();
   bool is_ready();
   vector<int> get_vector_for_Lego();
   vector<char> trackback;
+  void undo_last_step();
   ~Cube();
 };
 

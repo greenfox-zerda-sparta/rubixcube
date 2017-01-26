@@ -1,12 +1,10 @@
 #include <iostream>
 #include "cube.h"
-#include "Cube_Input.h"
 
 int main(int argc, char* argv[]) {
-  Cube_Input input;
-  if (input.start) {
-    Cube mycube;
-  }
-
+  Cube mycube;
+  mycube.draw_cube();
+  for (; mycube.trackback.size(); mycube.undo_last_step());
+  cout << mycube.is_ready();
   return 0;
 }  
