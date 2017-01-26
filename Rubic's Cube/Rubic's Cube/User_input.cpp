@@ -25,7 +25,7 @@ User_input::User_input(int width, int height) : WINDOW_WIDTH(width), WINDOW_HEIG
   this->repeat = 1;
 }
 
-void User_input::input_handler(bool& running) {
+void User_input::input_handler(bool& running, Cube& _cube) {
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
     case SDL_QUIT:
@@ -34,17 +34,33 @@ void User_input::input_handler(bool& running) {
     case SDL_KEYDOWN:
       switch (event.key.keysym.sym) {
       case SDLK_RIGHT:
-        this->changing_x += this->step;
         break;
       case SDLK_LEFT:
-        this->changing_x -= this->step;
         break;
       case SDLK_UP:
-        this->changing_y -= this->step;
-        this->repeat++;
         break;
       case SDLK_DOWN:
-        this->repeat--;
+        break;
+      case SDLK_f:
+        _cube.rotate_front();
+        break;
+      case SDLK_u:
+        _cube.rotate_up();
+        break;
+      case SDLK_b:
+        _cube.rotate_back();
+        break;
+      case SDLK_d:
+        _cube.rotate_down();
+        break;
+      case SDLK_r:
+        _cube.rotate_right();
+        break;
+      case SDLK_l:
+        _cube.rotate_left();
+        break;
+      case SDLK_SPACE:
+        _cube.random_shuffle();
         break;
       case SDLK_ESCAPE:
         running = false;

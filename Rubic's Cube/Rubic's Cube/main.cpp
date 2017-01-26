@@ -9,13 +9,8 @@
 #define HEIGHT 480
 
 int main(int argc, char* argv[]) {
-  std::vector<int> colors;
-  colors.resize(54, 0);
-  colors[4] = 3;
-  Cube mycube;
 
-  colors = mycube.get_vector_for_Lego();
-
+  Cube my_cube;
 
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Window *screen;
@@ -38,11 +33,11 @@ int main(int argc, char* argv[]) {
   
   bool running = true;
   while (running) {
-    ui.input_handler(running);
+    ui.input_handler(running, my_cube);
     opgl.opengl_sreenbuilder();
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
-    primitive.draw_flattened_cube(colors);
+    primitive.draw_flattened_cube(my_cube.get_vector_for_Lego());
     ///primitive.draw_real_cube(colors);
 
     opgl.opengl_display(screen);
