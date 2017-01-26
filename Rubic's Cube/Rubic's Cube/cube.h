@@ -1,7 +1,10 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
+using std::cout;
+using std::endl;
 using std::vector;
 
 class Cube {
@@ -21,6 +24,7 @@ public:
   void rotate_down();
   void rotate_right();
   void roatate_left();
+  void draw_cube();
   ~Cube();
 };
 
