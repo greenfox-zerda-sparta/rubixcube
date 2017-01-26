@@ -34,7 +34,6 @@ void Cube::random_shuffle() {
       cout << ",R ";
       break;
     }
-    //draw_cube();
   }
 }
 
@@ -248,6 +247,7 @@ bool Cube::is_ready() {
 }
 
 vector<int> Cube::get_vector_for_Lego() {
+  fill_faces_to_cube();
   vector<int> for_lego;
   for (unsigned int i = 0; i < faces_of_cube.size(); i++) {
     for (unsigned int j = 0; j < faces_of_cube[i].size(); j++) {
