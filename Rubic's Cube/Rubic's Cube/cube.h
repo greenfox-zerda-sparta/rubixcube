@@ -22,7 +22,5 @@ public:
   void rotate_right();
   void roatate_left();
   ~Cube();
-private:
-  void change(int, int);
 };
 
