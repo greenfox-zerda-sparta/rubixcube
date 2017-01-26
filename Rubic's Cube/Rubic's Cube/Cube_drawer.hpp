@@ -15,9 +15,7 @@ private:
 public:
   Cube_drawer();
   ~Cube_drawer();
-  void generate_map(int _beg, int repeat, int x, int z, char ax, int pic);
   void draw_square();
-  void generate_tile_net(int);
   void draw_flattened_cube();
 };
 
