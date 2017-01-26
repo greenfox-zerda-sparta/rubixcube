@@ -1,0 +1,1 @@
+Opengl.d: ../Opengl.cpp

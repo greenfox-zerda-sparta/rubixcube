@@ -1,3 +1,4 @@
+#ifndef __FERI
 #include "Cube_drawer.hpp"
 #include "texture_functions.hpp"
 
@@ -36,17 +37,18 @@ void Cube_drawer::draw_square() {
   glEnd();
 }
 
-void Cube_drawer::draw_flattened_cube() {
+void Cube_drawer::draw_flattened_cube(std::vector<int> &colors) {
   int size = 3;
   int shift = size / 2;
   int pic = 0;
-
+  int index = 0;
   for (int i = 0; i < 6; i++) {
 
-    texture_blind_and_enable(textures[pic]);
+    
 
     for (int x = 0 - shift - script[i].first; x < size - shift - script[i].first; x++) {
       for (int z = 0 - shift - script[i].second; z < size - shift - script[i].second; z++) {
+        texture_blind_and_enable(textures[colors[index]]);
         glBegin(GL_POLYGON);
 
         glTexCoord2i(0, 0);
@@ -59,10 +61,13 @@ void Cube_drawer::draw_flattened_cube() {
         glVertex3f(float(x), 0, (float(z) + 1));
 
         glEnd();
+        texture_disable();
+        index++;
       }
-    }   
-    texture_disable();
+    }
     pic++;
   }
-
 }
+
+
+#endif

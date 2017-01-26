@@ -1,9 +1,11 @@
+#ifndef __FERI
 #pragma once
 #include <vector>
 #include <Windows.h>
 #include "SDL.h"
 #include <glut.h>
 #include <utility>
+#include <iostream>
 
 class Cube_drawer {
 private:
@@ -19,6 +21,6 @@ public:
   ~Cube_drawer();
   void load_texture(char* file_name);
   void draw_square();
-  void draw_flattened_cube();
+  void draw_flattened_cube(std::vector<int> &colors);
 };
-
+#endif

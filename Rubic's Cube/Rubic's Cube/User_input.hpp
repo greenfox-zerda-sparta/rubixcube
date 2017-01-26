@@ -1,3 +1,4 @@
+#ifndef __FERI
 #pragma once
 #include <SDL.h>
 #include <iostream>
@@ -30,3 +31,4 @@ public:
   ~User_input();
 };
 
+#endif

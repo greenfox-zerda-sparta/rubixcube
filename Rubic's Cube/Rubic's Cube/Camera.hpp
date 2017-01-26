@@ -1,3 +1,4 @@
+#ifndef __FERI
 #pragma once
 #include <iostream>
 #include <Windows.h>
@@ -12,3 +13,4 @@ public:
   void rotate_camera(double, double);
 };
 
+#endif
