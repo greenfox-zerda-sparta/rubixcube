@@ -1,4 +1,4 @@
-#include "Cube.h"
+#include "cube.h"
 
 Cube::Cube() {
   faces_of_cube.push_back(front);
