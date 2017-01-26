@@ -1,3 +1,4 @@
+#ifndef __FERI
 #pragma once
 #include <vector>
 #include <Windows.h>
@@ -18,4 +19,4 @@ public:
   void draw_square();
   void draw_flattened_cube();
 };
-
+#endif

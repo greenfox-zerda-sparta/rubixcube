@@ -1,3 +1,4 @@
+#ifndef __FERI
 #include "Opengl.hpp"
 
 Opengl::Opengl() {
@@ -23,3 +24,6 @@ void Opengl::opengl_display(SDL_Window* screen) {
   glFlush();
   SDL_GL_SwapWindow(screen);
 }
+
+
+#endif

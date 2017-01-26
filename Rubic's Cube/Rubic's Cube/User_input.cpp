@@ -1,3 +1,4 @@
+#ifndef __FERI
 #include "User_input.hpp"
 
 User_input::User_input() : WINDOW_WIDTH(0), WINDOW_HEIGHT(0) {
@@ -92,3 +93,5 @@ void User_input::set_step(int _value) {
 
 User_input::~User_input() {
 }
+
+#endif

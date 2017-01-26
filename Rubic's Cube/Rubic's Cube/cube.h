@@ -11,7 +11,7 @@ using std::vector;
 
 class Cube {
 private:
-  vector<vector<char>> faces_of_cube;
+  vector<vector<char> > faces_of_cube;
   vector<char> up = {'W','W', 'W', 'W', 'W', 'W', 'W', 'W', 'W'};
   vector<char> front = {'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G'};
   vector<char> down = {'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'};

@@ -1,3 +1,4 @@
+#ifndef __FERI
 #pragma once
 #include <iostream>
 #include <Windows.h>
@@ -13,3 +14,6 @@ public:
   void opengl_display(SDL_Window* screen);
 };
 
+
+
+#endif
