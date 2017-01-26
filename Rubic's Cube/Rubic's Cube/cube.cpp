@@ -3,6 +3,7 @@
 Cube::Cube() {
   srand(time(NULL));
   random_shuffle();
+  tr_back = false;
 }
 
 void Cube::random_shuffle() {
@@ -48,7 +49,7 @@ void Cube::fill_faces_to_cube() {
 }
 
 void Cube::rotate_front() {
-  trackback.push_back('F');
+  if(!tr_back) trackback.push_back('F');
   int temp = front[0];
   front[0] = front[6];
   front[6] = front[8];
@@ -78,7 +79,7 @@ void Cube::rotate_front() {
 }
 
 void Cube::rotate_up() {
-  trackback.push_back('U');
+  if(!tr_back) trackback.push_back('U');
   int temp = up[0];
   up[0] = up[6];
   up[6] = up[8];
@@ -108,7 +109,7 @@ void Cube::rotate_up() {
 }
 
 void Cube::rotate_back() {
-  trackback.push_back('B');
+  if(!tr_back) trackback.push_back('B');
   int temp = back[0];
   back[0] = back[6];
   back[6] = back[8];
@@ -138,7 +139,7 @@ void Cube::rotate_back() {
 }
 
 void Cube::rotate_down() {
-  trackback.push_back('D');
+  if(!tr_back) trackback.push_back('D');
   int temp = down[0];
   down[0] = down[6];
   down[6] = down[8];
@@ -168,7 +169,7 @@ void Cube::rotate_down() {
 }
 
 void Cube::rotate_right() {
-  trackback.push_back('R');
+  if(!tr_back) trackback.push_back('R');
   int temp = right[0];
   right[0] = right[6];
   right[6] = right[8];
@@ -198,7 +199,7 @@ void Cube::rotate_right() {
 }
 
 void Cube::rotate_left() {
-  trackback.push_back('L');
+  if(!tr_back) trackback.push_back('L');
   int temp = left[0];
   left[0] = left[6];
   left[6] = left[8];
@@ -296,8 +297,8 @@ void Cube::draw_cube() {
 
 bool Cube::is_ready() {
   fill_faces_to_cube();
-  for (int j = 0; j < faces_of_cube.size(); j++) {
-    for (int i = 0; i < faces_of_cube[j].size(); i++) {
+  for (unsigned int j = 0; j < faces_of_cube.size(); j++) {
+    for (unsigned int i = 0; i < faces_of_cube[j].size(); i++) {
       if (faces_of_cube[j][i] != faces_of_cube[j][4]) {
         return false;
       }
@@ -324,4 +325,46 @@ vector<vector<int>> Cube::get_faces_of_cube() {
 
 Cube::~Cube() {
 }
-  
+
+void Cube::undo_last_step()
+{
+  tr_back = true;
+  if(!trackback.empty()){
+    char last_step = trackback[trackback.size() -1];
+    switch(last_step) {
+    case 'U':
+      rotate_up();
+      rotate_up();
+      rotate_up();
+      break;
+    case 'D':
+      rotate_down();
+      rotate_down();
+      rotate_down();
+      break;
+    case 'F':
+      rotate_front();
+      rotate_front();
+      rotate_front();
+      break;
+    case 'B':
+      rotate_back();
+      rotate_back();
+      rotate_back();
+     break;
+    case 'L':
+      rotate_left();
+      rotate_left();
+      rotate_left();
+      break;
+    case 'R':
+      rotate_right();
+      rotate_right();
+      rotate_right();
+      break;
+     }
+    trackback.pop_back();
+  }
+  tr_back = false;
+}
+
