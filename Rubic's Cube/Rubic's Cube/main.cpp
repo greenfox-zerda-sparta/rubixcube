@@ -9,7 +9,8 @@
 
 int main(int argc, char* argv[]) {
   std::vector<int> colors;
-  colors.resize(54, 0);
+  colors.resize(54, 5);
+  ///colors[4] = 3;
 
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Window *screen;
@@ -21,11 +22,11 @@ int main(int argc, char* argv[]) {
   Cube_drawer primitive;
 
   primitive.load_texture("pics/green.bmp");
-  primitive.load_texture("pics/white.bmp");
-  primitive.load_texture("pics/blue.bmp");
-  primitive.load_texture("pics/yellow.bmp");
   primitive.load_texture("pics/red.bmp");
+  primitive.load_texture("pics/blue.bmp");
   primitive.load_texture("pics/orange.bmp");
+  primitive.load_texture("pics/white.bmp");
+  primitive.load_texture("pics/yellow.bmp");
 
   User_input ui(WIDTH, HEIGHT);
   opgl.opengl_init(WIDTH, HEIGHT);
@@ -37,6 +38,7 @@ int main(int argc, char* argv[]) {
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
     primitive.draw_flattened_cube(colors);
+    ///primitive.draw_real_cube(colors);
 
     opgl.opengl_display(screen);
   }

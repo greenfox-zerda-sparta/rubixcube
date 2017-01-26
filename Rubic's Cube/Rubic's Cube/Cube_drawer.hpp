@@ -22,5 +22,6 @@ public:
   void load_texture(char* file_name);
   void draw_square();
   void draw_flattened_cube(std::vector<int> &colors);
+  void draw_real_cube(std::vector<int> &colors);
 };
 #endif
