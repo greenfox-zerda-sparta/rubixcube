@@ -1,3 +1,4 @@
+#ifndef __FERI
 #pragma once
 #include <vector>
 #include <Windows.h>

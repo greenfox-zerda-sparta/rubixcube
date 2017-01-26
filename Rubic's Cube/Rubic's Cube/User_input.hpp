@@ -1,7 +1,6 @@
 #ifndef __FERI
 #pragma once
 #include <SDL.h>
-#include "cube.h"
 #include <iostream>
 
 class User_input {
@@ -20,7 +19,7 @@ private:
 public:
   User_input();
   User_input(int width, int height);
-  void input_handler(bool& running, Cube& _cube);
+  void input_handler(bool& running);
   int get_changing_x();
   int get_changing_y();
   int get_changing_mouse_x();
