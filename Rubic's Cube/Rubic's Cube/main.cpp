@@ -3,11 +3,13 @@
 #include "Cube_drawer.hpp"
 #include "User_input.hpp"
 
-#include <iostream>
 #define WIDTH 640
 #define HEIGHT 480
 
 int main(int argc, char* argv[]) {
+  std::vector<int> colors;
+  colors.resize(54, 0);
+
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Window *screen;
   screen = SDL_CreateWindow("Rubic's  window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, /*SDL_WINDOW_FULLSCREEN |*/ SDL_WINDOW_OPENGL);
@@ -33,7 +35,7 @@ int main(int argc, char* argv[]) {
     opgl.opengl_sreenbuilder();
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
-    primitive.draw_flattened_cube();
+    primitive.draw_flattened_cube(colors);
 
     opgl.opengl_display(screen);
   }
