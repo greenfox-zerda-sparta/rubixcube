@@ -26,8 +26,6 @@ int main(int argc, char* argv[]) {
     opgl.opengl_sreenbuilder();
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
-    ///primitive.generate_tile_net(ui.get_repeat());
-    //primitive.generate_map(-1, ui.get_repeat(), 0, 0, 'x', 0);
     primitive.draw_flattened_cube();
 
     opgl.opengl_display(screen);
