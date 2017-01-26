@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Rubic%27s Cube\Rubic%27s Cube\cube.cpp" />
     <ClCompile Include="..\..\Rubic%27s Cube\Rubic%27s Cube\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +29,9 @@
     <Image Include="..\..\Rubic%27s Cube\Rubic%27s Cube\red.bmp" />
     <Image Include="..\..\Rubic%27s Cube\Rubic%27s Cube\white.bmp" />
     <Image Include="..\..\Rubic%27s Cube\Rubic%27s Cube\yellow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rubic%27s Cube\Rubic%27s Cube\cube.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{670002a5-5e2d-4847-87e0-011985776b7e}</ProjectGuid>
