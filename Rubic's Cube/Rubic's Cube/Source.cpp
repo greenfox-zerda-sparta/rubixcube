@@ -3,13 +3,13 @@
 
 int main(int argc, char* argv[]) {
   Cube mycube;
-
+  /*
   cout << "FRONT ROTATION" << endl;
   mycube.rotate_front();
   mycube.rotate_front();
   mycube.rotate_front();
   mycube.rotate_front();
-
+  */
   mycube.draw_cube();
   /*
   cout << "UP ROTATION" << endl;

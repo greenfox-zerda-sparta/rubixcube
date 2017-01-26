@@ -2,11 +2,11 @@
 
 Cube::Cube() {
   srand(time(NULL));
-  //random_shuffle();
+  random_shuffle();
 }
 
 void Cube::random_shuffle() {
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 10; i++) {
     int which_rotation = rand() % 6;
     switch (which_rotation) {
     case 0:
@@ -34,6 +34,7 @@ void Cube::random_shuffle() {
       cout << ",R ";
       break;
     }
+    //draw_cube();
   }
 }
 
@@ -65,9 +66,9 @@ void Cube::rotate_front() {
   up[6] = left[8];
   up[7] = left[5];
   up[8] = left[2];
-  left[8] = down[0];
+  left[2] = down[0];
   left[5] = down[1];
-  left[2] = down[2];
+  left[8] = down[2];
   down[0] = right[6];
   down[1] = right[3];
   down[2] = right[0];
