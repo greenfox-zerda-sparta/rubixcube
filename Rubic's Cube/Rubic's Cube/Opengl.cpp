@@ -1,4 +1,3 @@
-#ifndef __FERI
 #include "Opengl.hpp"
 
 Opengl::Opengl() {

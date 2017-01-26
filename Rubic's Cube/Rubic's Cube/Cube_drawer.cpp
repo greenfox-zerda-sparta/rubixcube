@@ -1,4 +1,3 @@
-#ifndef __FERI
 #include "Cube_drawer.hpp"
 #include "texture_functions.hpp"
 

@@ -48,6 +48,7 @@ void Cube::fill_faces_to_cube() {
 }
 
 void Cube::rotate_front() {
+  trackback.push_back('F');
   int temp = front[0];
   front[0] = front[6];
   front[6] = front[8];
@@ -77,6 +78,7 @@ void Cube::rotate_front() {
 }
 
 void Cube::rotate_up() {
+  trackback.push_back('U');
   int temp = up[0];
   up[0] = up[6];
   up[6] = up[8];
@@ -106,6 +108,7 @@ void Cube::rotate_up() {
 }
 
 void Cube::rotate_back() {
+  trackback.push_back('B');
   int temp = back[0];
   back[0] = back[6];
   back[6] = back[8];
@@ -135,6 +138,7 @@ void Cube::rotate_back() {
 }
 
 void Cube::rotate_down() {
+  trackback.push_back('D');
   int temp = down[0];
   down[0] = down[6];
   down[6] = down[8];
@@ -164,6 +168,7 @@ void Cube::rotate_down() {
 }
 
 void Cube::rotate_right() {
+  trackback.push_back('R');
   int temp = right[0];
   right[0] = right[6];
   right[6] = right[8];
@@ -193,6 +198,7 @@ void Cube::rotate_right() {
 }
 
 void Cube::rotate_left() {
+  trackback.push_back('L');
   int temp = left[0];
   left[0] = left[6];
   left[6] = left[8];
