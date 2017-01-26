@@ -6,7 +6,7 @@ Cube::Cube() {
 }
 
 void Cube::random_shuffle() {
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 20; i++) {
     int which_rotation = rand() % 6;
     switch (which_rotation) {
     case 0:
