@@ -4,29 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../Camera.cpp \
-../Cube_drawer.cpp \
-../Opengl.cpp \
 ../Source.cpp \
-../User_input.cpp \
 ../cube.cpp \
 ../main.cpp 
 
 OBJS += \
-./Camera.o \
-./Cube_drawer.o \
-./Opengl.o \
 ./Source.o \
-./User_input.o \
 ./cube.o \
 ./main.o 
 
 CPP_DEPS += \
-./Camera.d \
-./Cube_drawer.d \
-./Opengl.d \
 ./Source.d \
-./User_input.d \
 ./cube.d \
 ./main.d 
 
