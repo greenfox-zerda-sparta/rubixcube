@@ -20,6 +20,7 @@ private:
   vector<int> left = {3, 3, 3, 3, 3, 3 ,3, 3, 3}; // orange 3
   void fill_faces_to_cube();
   void random_shuffle();
+
 public:
   Cube();
   void rotate_front();
@@ -31,6 +32,7 @@ public:
   void draw_cube();
   bool is_ready();
   vector<int> get_vector_for_Lego();
+  vector<char> trackback;
   ~Cube();
 };
 
