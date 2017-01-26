@@ -5,13 +5,11 @@
 #include <glut.h>
 
 class Opengl {
-private:
-  SDL_Window *screen;
 public:
   Opengl();
   ~Opengl();
   void opengl_init(int, int);
   void opengl_sreenbuilder();
-  void opengl_display();
+  void opengl_display(SDL_Window* screen);
 };
 
