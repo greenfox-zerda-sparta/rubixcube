@@ -11,13 +11,13 @@ using std::vector;
 
 class Cube {
 private:
-  vector<vector<char> > faces_of_cube;
-  vector<char> up = {'W','W', 'W', 'W', 'W', 'W', 'W', 'W', 'W'};
-  vector<char> front = {'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G'};
-  vector<char> down = {'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'};
-  vector<char> back = {'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'};
-  vector<char> right = {'R','R','R','R','R','R','R','R','R' };
-  vector<char> left = {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'};
+  vector<vector<int>> faces_of_cube;
+  vector<int> up = {4, 4, 4, 4, 4, 4, 4, 4, 4}; // white 4
+  vector<int> front = {0, 0, 0, 0, 0, 0, 0, 0, 0}; // green 0
+  vector<int> down = {5, 5, 5, 5, 5, 5, 5, 5, 5}; // yellow 5
+  vector<int> back = {2, 2, 2, 2, 2, 2, 2, 2, 2}; // blue 2
+  vector<int> right = {1, 1, 1, 1, 1, 1, 1, 1, 1}; // red 1
+  vector<int> left = {3, 3, 3, 3, 3, 3 ,3, 3, 3}; // orange 3
   void fill_faces_to_cube();
   void random_shuffle();
 public:
@@ -30,6 +30,7 @@ public:
   void rotate_left();
   void draw_cube();
   bool is_ready();
+  vector<int> get_vector_for_Lego();
   ~Cube();
 };
 
