@@ -20,6 +20,7 @@ private:
   vector<int> left = {3, 3, 3, 3, 3, 3 ,3, 3, 3}; // orange 3
   void fill_faces_to_cube();
   void random_shuffle();
+  vector<char> trackback;
 public:
   Cube();
   void rotate_front();
