@@ -56,7 +56,7 @@ void User_input::input_handler(bool& running, Cube& _cube) {
       case SDLK_r:
         _cube.rotate_right();
         break;
-      case SDLK_l:
+      case SDLK_l: 
         _cube.rotate_left();
         break;
       case SDLK_SPACE:
