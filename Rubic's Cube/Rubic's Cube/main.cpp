@@ -1,6 +1,5 @@
 #include "Opengl.hpp"
 #include "Camera.hpp"
-#include "Axes.hpp"
 #include "Cube_drawer.hpp"
 #include "User_input.hpp"
 

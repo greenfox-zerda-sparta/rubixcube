@@ -103,30 +103,44 @@ void Cube_drawer::generate_tile_net(int size) {
 }
 
 void Cube_drawer::draw_flattened_cube() {
-  texture_init(texture, texture_names[1]);
-  texture_blind_and_enable(texture);
+
+  std::vector<std::pair<int, int>> script;
+  script.push_back(std::make_pair(0, 0));
+  script.push_back(std::make_pair(0, 3));
+  script.push_back(std::make_pair(0, 6));
+  script.push_back(std::make_pair(0, 9));
+  script.push_back(std::make_pair(3, 3));
+  script.push_back(std::make_pair(-3, 3));
+
   int size = 3;
   int shift = size / 2;
-  int glob_shift_x = 3;
-  int glob_shift_z = 3;
 
-  for (int x = 0 - shift - glob_shift_x; x < size - shift - glob_shift_x; x++) {
-    for (int z = 0 - shift - glob_shift_z; z < size - shift - glob_shift_z; z++) {
-      glBegin(GL_POLYGON);
+  int pic = 0;
 
-      glTexCoord2i(0, 0);
-      glVertex3f(float(x), 0, float(z));
-      glTexCoord2i(1, 0);
-      glVertex3f((float(x) + 1), 0, float(z));
-      glTexCoord2i(1, 1);
-      glVertex3f((float(x) + 1), 0, (float(z) + 1));
-      glTexCoord2i(0, 1);
-      glVertex3f(float(x), 0, (float(z) + 1));
+  for (int i = 0; i < 6; i++) {
+    
+    texture_init(texture, texture_names[pic]);
+    texture_blind_and_enable(texture);
 
-      glEnd();
-    }
+    for (int x = 0 - shift - script[i].first; x < size - shift - script[i].first; x++) {
+      for (int z = 0 - shift - script[i].second; z < size - shift - script[i].second; z++) {
+        glBegin(GL_POLYGON);
+
+        glTexCoord2i(0, 0);
+        glVertex3f(float(x), 0, float(z));
+        glTexCoord2i(1, 0);
+        glVertex3f((float(x) + 1), 0, float(z));
+        glTexCoord2i(1, 1);
+        glVertex3f((float(x) + 1), 0, (float(z) + 1));
+        glTexCoord2i(0, 1);
+        glVertex3f(float(x), 0, (float(z) + 1));
+
+        glEnd();
+      }
+    }   
+    texture_disable();
+    texture_deinit(texture);
+    pic++;
   }
 
-  texture_disable();
-  texture_deinit(texture);
 }
