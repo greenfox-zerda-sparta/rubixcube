@@ -18,6 +18,9 @@
     <ClCompile Include="..\..\Rubic%27s Cube\Rubic%27s Cube\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Rubic%27s Cube\Rubic%27s Cube\cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\Rubic%27s Cube\Rubic%27s Cube\blue.bmp">
@@ -38,5 +41,10 @@
     <Image Include="..\..\Rubic%27s Cube\Rubic%27s Cube\yellow.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rubic%27s Cube\Rubic%27s Cube\cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
