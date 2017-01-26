@@ -1,3 +1,4 @@
+#ifndef __FERI
 #include "Opengl.hpp"
 #include "Camera.hpp"
 #include "Cube_drawer.hpp"
@@ -43,3 +44,5 @@ int main(int argc, char* argv[]) {
   SDL_Quit();
   return 0;
 }
+
+#endif

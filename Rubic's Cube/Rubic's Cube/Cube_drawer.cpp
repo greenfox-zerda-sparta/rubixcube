@@ -1,3 +1,4 @@
+#ifndef __FERI
 #include "Cube_drawer.hpp"
 #include "texture_functions.hpp"
 
@@ -67,3 +68,6 @@ void Cube_drawer::draw_flattened_cube(std::vector<int> &colors) {
     pic++;
   }
 }
+
+
+#endif
