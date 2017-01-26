@@ -2,7 +2,7 @@
 
 Cube::Cube() {
   srand(time(NULL));
-  random_shuffle();
+  //random_shuffle();
 }
 
 void Cube::random_shuffle() {
@@ -233,6 +233,18 @@ void Cube::draw_cube() {
     }
     cout << endl << endl;
   }
+}
+
+bool Cube::is_ready() {
+  fill_faces_to_cube();
+  for (int j = 0; j < faces_of_cube.size(); j++) {
+    for (int i = 0; i < faces_of_cube[j].size(); i++) {
+      if (faces_of_cube[j][i] != faces_of_cube[j][4]) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 Cube::~Cube() {
