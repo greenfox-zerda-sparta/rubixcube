@@ -24,9 +24,11 @@ void Cube::rotate_front() {
 
 }
 
-void Cube::change(int first, int second) {
+void Cube::rotate_up() {
+  char temp;
+
+
 
 }
-
 Cube::~Cube() {
 }
