@@ -3,14 +3,19 @@
 #include "Camera.hpp"
 #include "Cube_drawer.hpp"
 #include "User_input.hpp"
+#include "cube.h"
 
 #define WIDTH 640
 #define HEIGHT 480
 
 int main(int argc, char* argv[]) {
   std::vector<int> colors;
-  colors.resize(54, 5);
-  ///colors[4] = 3;
+  colors.resize(54, 0);
+  colors[4] = 3;
+  Cube mycube;
+
+  colors = mycube.get_vector_for_Lego();
+
 
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Window *screen;
