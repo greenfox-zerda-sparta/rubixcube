@@ -17,6 +17,13 @@ int main(int argc, char* argv[]) {
   Camera cam;
   Cube_drawer primitive;
 
+  primitive.load_texture("pics/green.bmp");
+  primitive.load_texture("pics/white.bmp");
+  primitive.load_texture("pics/blue.bmp");
+  primitive.load_texture("pics/yellow.bmp");
+  primitive.load_texture("pics/red.bmp");
+  primitive.load_texture("pics/orange.bmp");
+
   User_input ui(WIDTH, HEIGHT);
   opgl.opengl_init(WIDTH, HEIGHT);
   
