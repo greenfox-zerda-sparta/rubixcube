@@ -1,5 +1,43 @@
 #include "cube.h"
 
+Cube::Cube() {
+  srand(time(NULL));
+  //random_shuffle();
+}
+
+void Cube::random_shuffle() {
+  for (int i = 0; i < 10; i++) {
+    int which_rotation = rand() % 6;
+    switch (which_rotation) {
+    case 0:
+      rotate_front();
+      cout << ",F ";
+      break;
+    case 1:
+      rotate_up();
+      cout << ",U ";
+      break;
+    case 2:
+      rotate_back();
+      cout << ",B ";
+      break;
+    case 3:
+      rotate_down();
+      cout << ",D ";
+      break;
+    case 4 :
+      rotate_left();
+      cout << ",L ";
+      break;
+    case 5:
+      rotate_right();
+      cout << ",R ";
+      break;
+    }
+    //draw_cube();
+  }
+}
+
 void Cube::fill_faces_to_cube() {
   faces_of_cube.clear();
   faces_of_cube.push_back(front);
@@ -9,8 +47,6 @@ void Cube::fill_faces_to_cube() {
   faces_of_cube.push_back(right);
   faces_of_cube.push_back(left);
 }
-
-Cube::Cube() {}
 
 void Cube::rotate_front() {
   char temp = front[0];
@@ -30,9 +66,9 @@ void Cube::rotate_front() {
   up[6] = left[8];
   up[7] = left[5];
   up[8] = left[2];
-  left[8] = down[0];
+  left[2] = down[0];
   left[5] = down[1];
-  left[2] = down[2];
+  left[8] = down[2];
   down[0] = right[6];
   down[1] = right[3];
   down[2] = right[0];
@@ -157,7 +193,7 @@ void Cube::rotate_right() {
   back[6] = temp2;
 }
 
-void Cube::roatate_left() {
+void Cube::rotate_left() {
   char temp = left[0];
   left[0] = left[6];
   left[6] = left[8];
@@ -197,6 +233,18 @@ void Cube::draw_cube() {
     }
     cout << endl << endl;
   }
+}
+
+bool Cube::is_ready() {
+  fill_faces_to_cube();
+  for (int j = 0; j < faces_of_cube.size(); j++) {
+    for (int i = 0; i < faces_of_cube[j].size(); i++) {
+      if (faces_of_cube[j][i] != faces_of_cube[j][4]) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 Cube::~Cube() {
