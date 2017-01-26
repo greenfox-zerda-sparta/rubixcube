@@ -26,7 +26,7 @@ void Cube::random_shuffle() {
       cout << ",D ";
       break;
     case 4 :
-      roatate_left();
+      rotate_left();
       cout << ",L ";
       break;
     case 5:
@@ -193,7 +193,7 @@ void Cube::rotate_right() {
   back[6] = temp2;
 }
 
-void Cube::roatate_left() {
+void Cube::rotate_left() {
   char temp = left[0];
   left[0] = left[6];
   left[6] = left[8];
