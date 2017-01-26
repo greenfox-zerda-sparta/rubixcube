@@ -20,6 +20,7 @@ void Cube::rotate_front() {
   front[3] = front[7];
   front[7] = front[5];
   front[5] = temp;
+ 
   char temp0 = up[6];
   char temp1 = up[7];
   char temp2 = up[8];
