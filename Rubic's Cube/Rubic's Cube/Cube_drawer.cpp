@@ -1,21 +1,23 @@
-#include "Map.hpp"
+#include "Cube_drawer.hpp"
 #include "texture_functions.hpp"
 
-Map::Map() {
+Cube_drawer::Cube_drawer() {
   texture_names.resize(0);
   texture_names.push_back("pics/blue.bmp");
   texture_names.push_back("pics/green.bmp");
   texture_names.push_back("pics/orange.bmp");
   texture_names.push_back("pics/red.bmp");
+  texture_names.push_back("pics/white.bmp");
+  texture_names.push_back("pics/yellow.bmp");
   this->scale_x = 1;
   this->scale_y = 1;
   this->scale_z = 1;
 }
 
-Map::~Map() {
+Cube_drawer::~Cube_drawer() {
 }
 
-void Map::generate_map(int _beg, int repeat, int x, int z, char ax, int pic) {
+void Cube_drawer::generate_map(int _beg, int repeat, int x, int z, char ax, int pic) {
   int beg = _beg;
   int end = beg + 2;
  
@@ -66,7 +68,7 @@ void Map::generate_map(int _beg, int repeat, int x, int z, char ax, int pic) {
   }
 }
 
-void Map::draw_square() {
+void Cube_drawer::draw_square() {
   glColor3ub(0, 153, 76);
   glBegin(GL_QUAD_STRIP);
   glVertex3d(scale_x * (0), scale_y * (0), scale_z * (0)); /// 0,0
@@ -76,7 +78,7 @@ void Map::draw_square() {
   glEnd();
 }
 
-void Map::generate_tile_net(int size) {
+void Cube_drawer::generate_tile_net(int size) {
   bool color = true;
   if (size % 2 != 0) {
     size++;
@@ -98,4 +100,33 @@ void Map::generate_tile_net(int size) {
     }
     if (size % 2 == 0) color = !color;
   }
+}
+
+void Cube_drawer::draw_flattened_cube() {
+  texture_init(texture, texture_names[1]);
+  texture_blind_and_enable(texture);
+  int size = 3;
+  int shift = size / 2;
+  int glob_shift_x = 3;
+  int glob_shift_z = 3;
+
+  for (int x = 0 - shift - glob_shift_x; x < size - shift - glob_shift_x; x++) {
+    for (int z = 0 - shift - glob_shift_z; z < size - shift - glob_shift_z; z++) {
+      glBegin(GL_POLYGON);
+
+      glTexCoord2i(0, 0);
+      glVertex3f(float(x), 0, float(z));
+      glTexCoord2i(1, 0);
+      glVertex3f((float(x) + 1), 0, float(z));
+      glTexCoord2i(1, 1);
+      glVertex3f((float(x) + 1), 0, (float(z) + 1));
+      glTexCoord2i(0, 1);
+      glVertex3f(float(x), 0, (float(z) + 1));
+
+      glEnd();
+    }
+  }
+
+  texture_disable();
+  texture_deinit(texture);
 }
