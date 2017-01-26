@@ -3,8 +3,9 @@
 #include <Windows.h>
 #include "SDL.h"
 #include <glut.h>
+#include <utility>
 
-class Map {
+class Cube_drawer {
 private:
   GLuint texture;
   std::vector<char*> texture_names;
@@ -12,10 +13,9 @@ private:
   double scale_y;
   double scale_z;
 public:
-  Map();
-  ~Map();
-  void generate_map(int _beg, int repeat, int x, int z, char ax, int pic);
+  Cube_drawer();
+  ~Cube_drawer();
   void draw_square();
-  void generate_tile_net(int);
+  void draw_flattened_cube();
 };
 

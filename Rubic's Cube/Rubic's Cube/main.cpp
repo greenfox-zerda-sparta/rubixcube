@@ -1,14 +1,11 @@
 #include "Opengl.hpp"
 #include "Camera.hpp"
-#include "Axes.hpp"
-#include "Map.hpp"
+#include "Cube_drawer.hpp"
 #include "User_input.hpp"
 
 #include <iostream>
 #define WIDTH 640
 #define HEIGHT 480
-double angle_x = 0;
-double angle_z = 0;
 
 int main(int argc, char* argv[]) {
   SDL_Init(SDL_INIT_VIDEO);
@@ -18,7 +15,7 @@ int main(int argc, char* argv[]) {
 
   Opengl opgl;
   Camera cam;
-  Map primitive;
+  Cube_drawer primitive;
 
   User_input ui(WIDTH, HEIGHT);
   opgl.opengl_init(WIDTH, HEIGHT);
@@ -29,8 +26,7 @@ int main(int argc, char* argv[]) {
     opgl.opengl_sreenbuilder();
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
-    ///primitive.generate_tile_net(ui.get_repeat());
-    primitive.generate_map(-1, ui.get_repeat(), 0, 0, 'x', 0);
+    primitive.draw_flattened_cube();
 
     opgl.opengl_display(screen);
   }

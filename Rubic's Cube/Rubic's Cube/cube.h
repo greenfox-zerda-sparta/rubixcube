@@ -1,7 +1,12 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
+using std::cout;
+using std::endl;
 using std::vector;
 
 class Cube {
@@ -13,6 +18,8 @@ private:
   vector<char> back = {'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'};
   vector<char> right = {'R','R','R','R','R','R','R','R','R' };
   vector<char> left = {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'};
+  void fill_faces_to_cube();
+  void random_shuffle();
 public:
   Cube();
   void rotate_front();
@@ -21,6 +28,7 @@ public:
   void rotate_down();
   void rotate_right();
   void roatate_left();
-  ~Cube()
+  void draw_cube();
+  ~Cube();
 };
 
