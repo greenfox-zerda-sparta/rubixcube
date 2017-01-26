@@ -1,5 +1,42 @@
 #include "cube.h"
 
+Cube::Cube() {
+  srand(time(NULL));
+  //random_shuffle();
+}
+
+void Cube::random_shuffle() {
+  for (int i = 0; i < 20; i++) {
+    int which_rotation = rand() % 6;
+    switch (which_rotation) {
+    case 0:
+      rotate_front();
+      cout << ",F ";
+      break;
+    case 1:
+      rotate_up();
+      cout << ",U ";
+      break;
+    case 2:
+      rotate_back();
+      cout << ",B ";
+      break;
+    case 3:
+      rotate_down();
+      cout << ",D ";
+      break;
+    case 4 :
+      roatate_left();
+      cout << ",L ";
+      break;
+    case 5:
+      rotate_right();
+      cout << ",R ";
+      break;
+    }
+  }
+}
+
 void Cube::fill_faces_to_cube() {
   faces_of_cube.clear();
   faces_of_cube.push_back(front);
@@ -9,8 +46,6 @@ void Cube::fill_faces_to_cube() {
   faces_of_cube.push_back(right);
   faces_of_cube.push_back(left);
 }
-
-Cube::Cube() {}
 
 void Cube::rotate_front() {
   char temp = front[0];
