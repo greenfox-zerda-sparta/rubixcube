@@ -21,8 +21,6 @@ public:
   void rotate_down();
   void rotate_right();
   void roatate_left();
-  ~Cube();
-private:
-  void change(int, int);
+  ~Cube()
 };
 

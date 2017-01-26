@@ -10,8 +10,7 @@ Cube::Cube() {
 }
 
 void Cube::rotate_front() {
-  char temp;
-  temp = front[0];
+  char temp = front[0];
   front[0] = front[6];
   front[6] = front[8];
   front[8] = front[2];
@@ -21,11 +20,21 @@ void Cube::rotate_front() {
   front[3] = front[7];
   front[7] = front[5];
   front[5] = temp;
-
-}
-
-void Cube::change(int first, int second) {
-
+  char temp0 = up[6];
+  char temp1 = up[7];
+  char temp2 = up[8];
+  up[6] = left[8];
+  up[7] = left[5];
+  up[8] = left[2];
+  left[8] = down[0];
+  left[5] = down[1];
+  left[2] = down[2];
+  down[0] = right[6];
+  down[1] = right[3];
+  down[2] = right[0];
+  right[0] = temp0;
+  right[3] = temp1;
+  right[6] = temp2;
 }
 
 Cube::~Cube() {
