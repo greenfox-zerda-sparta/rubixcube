@@ -16,6 +16,7 @@ private:
   vector<char> back = {'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'};
   vector<char> right = {'R','R','R','R','R','R','R','R','R' };
   vector<char> left = {'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'};
+  void fill_faces_to_cube();
 public:
   Cube();
   void rotate_front();
