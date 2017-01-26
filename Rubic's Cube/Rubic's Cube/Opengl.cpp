@@ -7,9 +7,6 @@ Opengl::~Opengl() {
 }
 
 void Opengl::opengl_init(int width, int height) {
-  SDL_Init(SDL_INIT_VIDEO);
-  screen = SDL_CreateWindow("My Game Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, /*SDL_WINDOW_FULLSCREEN |*/ SDL_WINDOW_OPENGL);
-  SDL_GL_CreateContext(screen);
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   gluPerspective(70, (double)width / height, 1, 1000);
@@ -22,7 +19,7 @@ void Opengl::opengl_sreenbuilder() {
   glLoadIdentity();
 }
 
-void Opengl::opengl_display() {
+void Opengl::opengl_display(SDL_Window* screen) {
   glFlush();
   SDL_GL_SwapWindow(screen);
 }
