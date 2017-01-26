@@ -84,15 +84,44 @@ void Cube::rotate_down() {
   front[6] = left[6];
   front[7] = left[7];
   front[8] = left[8];
-  left[6] = back[6];
-  left[7] = back[7];
-  left[8] = back[8];
-  back[6] = right[6];
-  back[7] = right[7];
-  back[8] = right[8];
+  left[6] = left[6];
+  left[7] = left[7];
+  left[8] = left[8];
+  left[6] = right[6];
+  left[7] = right[7];
+  left[8] = right[8];
   right[6] = temp0;
   right[7] = temp1;
   right[8] = temp2;
+}
+
+void Cube::roatate_left() {
+  char temp = left[0];
+  left[0] = left[6];
+  left[6] = left[8];
+  left[8] = left[2];
+  left[2] = temp;
+  temp = left[1];
+  left[1] = left[3];
+  left[3] = left[7];
+  left[7] = left[5];
+  left[5] = temp;
+
+  char temp0 = up[0];
+  char temp1 = up[3];
+  char temp2 = up[6];
+  up[0] = back[8];
+  up[3] = back[5];
+  up[6] = back[2];
+  back[8] = down[0];
+  back[5] = down[3];
+  back[2] = down[6];
+  down[0] = front[0];
+  down[3] = front[3];
+  down[6] = front[6];
+  front[0] = temp0;
+  front[3] = temp1;
+  front[6] = temp2;
 }
 
 Cube::~Cube() {
