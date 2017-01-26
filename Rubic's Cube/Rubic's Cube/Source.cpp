@@ -1,10 +1,9 @@
 #include <iostream>
 #include "cube.h"
-#include "Cube_Input.h"
 
 int main(int argc, char* argv[]) {
-  //Cube mycube;
-  Cube_Input getinput;
+  Cube mycube;
+  mycube.draw_cube();
 
   return 0;
 }  
