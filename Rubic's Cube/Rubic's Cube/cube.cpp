@@ -1,6 +1,7 @@
 #include "cube.h"
 
-Cube::Cube() {
+void Cube::fill_faces_to_cube() {
+  faces_of_cube.clear();
   faces_of_cube.push_back(front);
   faces_of_cube.push_back(up);
   faces_of_cube.push_back(back);
@@ -8,6 +9,8 @@ Cube::Cube() {
   faces_of_cube.push_back(right);
   faces_of_cube.push_back(left);
 }
+
+Cube::Cube() {}
 
 void Cube::rotate_front() {
   char temp = front[0];
@@ -184,6 +187,7 @@ void Cube::roatate_left() {
 }
 
 void Cube::draw_cube() {
+  fill_faces_to_cube();
   for (int i = 0; i < faces_of_cube.size(); i++) {
     for (int j = 0; j < faces_of_cube[i].size(); j++) {
       if (j % 3 == 0) {
