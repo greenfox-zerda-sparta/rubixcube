@@ -3,10 +3,10 @@
 
 Map::Map() {
   texture_names.resize(0);
-  texture_names.push_back("pic.bmp");
-  texture_names.push_back("pic1.bmp");
-  texture_names.push_back("pic2.bmp");
-  texture_names.push_back("pic3.bmp");
+  texture_names.push_back("pics/blue.bmp");
+  texture_names.push_back("pics/green.bmp");
+  texture_names.push_back("pics/orange.bmp");
+  texture_names.push_back("pics/red.bmp");
   this->scale_x = 1;
   this->scale_y = 1;
   this->scale_z = 1;

@@ -21,6 +21,10 @@ public:
   void rotate_down();
   void rotate_right();
   void roatate_left();
+<<<<<<< HEAD
   ~Cube();
+=======
+  ~Cube()
+>>>>>>> 378ccd6e1295d5a7e26a2956b6fd4ca1066e59c3
 };
 
