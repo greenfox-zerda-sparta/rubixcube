@@ -3,19 +3,28 @@
 #include "texture_functions.hpp"
 
 Cube_drawer::Cube_drawer() {
-  texture_names.resize(0);
-  texture_names.push_back("pics/green.bmp");
-  texture_names.push_back("pics/red.bmp");
-  texture_names.push_back("pics/blue.bmp");
-  texture_names.push_back("pics/orange.bmp");
-  texture_names.push_back("pics/yellow.bmp");
-  texture_names.push_back("pics/white.bmp");
+  script.push_back(std::make_pair(3, 0)); // green
+  script.push_back(std::make_pair(3, 3)); // white
+  script.push_back(std::make_pair(-3, 0)); // blue
+  script.push_back(std::make_pair(3, -3)); // yellow
+  script.push_back(std::make_pair(0, 0)); // red
+  script.push_back(std::make_pair(-6, 0)); //orange
+  
   this->scale_x = 1;
   this->scale_y = 1;
   this->scale_z = 1;
 }
 
 Cube_drawer::~Cube_drawer() {
+  for (std::vector<GLuint>::iterator it = textures.begin(); it != textures.end(); ++it) {
+    texture_deinit(textures[*it]);
+  }
+}
+
+void Cube_drawer::load_texture(char* file_name) {
+  GLuint temp_texture;
+  textures.push_back(temp_texture);
+  texture_init(textures[textures.size() - 1], file_name);
 }
 
 void Cube_drawer::draw_square() {
@@ -29,24 +38,13 @@ void Cube_drawer::draw_square() {
 }
 
 void Cube_drawer::draw_flattened_cube() {
-
-  std::vector<std::pair<int, int>> script;
-  script.push_back(std::make_pair(3, 0));
-  script.push_back(std::make_pair(0, 0));
-  script.push_back(std::make_pair(-3, 0));
-  script.push_back(std::make_pair(-6, 0));
-  script.push_back(std::make_pair(3, -3));
-  script.push_back(std::make_pair(3, 3));
-
   int size = 3;
   int shift = size / 2;
-
   int pic = 0;
 
   for (int i = 0; i < 6; i++) {
-    
-    texture_init(texture, texture_names[pic]);
-    texture_blind_and_enable(texture);
+
+    texture_blind_and_enable(textures[pic]);
 
     for (int x = 0 - shift - script[i].first; x < size - shift - script[i].first; x++) {
       for (int z = 0 - shift - script[i].second; z < size - shift - script[i].second; z++) {
@@ -65,7 +63,6 @@ void Cube_drawer::draw_flattened_cube() {
       }
     }   
     texture_disable();
-    texture_deinit(texture);
     pic++;
   }
 

@@ -27,8 +27,9 @@ public:
   void rotate_back();
   void rotate_down();
   void rotate_right();
-  void roatate_left();
+  void rotate_left();
   void draw_cube();
+  bool is_ready();
   ~Cube();
 };
 

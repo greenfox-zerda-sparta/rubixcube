@@ -11,6 +11,18 @@ int main(int argc, char* argv[]) {
   mycube.rotate_front();
   */
   mycube.draw_cube();
+  cout << "Is it ready? " << mycube.is_ready() << endl;
+
+
+  cout << "Rotated left." << endl;
+  mycube.rotate_left();
+  cout << "Is it ready? " << mycube.is_ready() << endl;
+
+  cout << "Rotated left 3 times." << endl;
+  mycube.rotate_left();
+  mycube.rotate_left();
+  mycube.rotate_left();
+  cout << "Is it ready? " << mycube.is_ready() << endl;
   /*
   cout << "UP ROTATION" << endl;
   mycube.rotate_up();
