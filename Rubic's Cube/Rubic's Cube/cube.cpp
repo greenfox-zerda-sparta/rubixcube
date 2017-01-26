@@ -227,6 +227,60 @@ void Cube::rotate_left() {
   front[6] = temp2;
 }
 
+void Cube::rotate_middle_gw() {
+  int temp1 = up[1];
+  int temp2 = up[4];
+  int temp3 = up[7];
+  up[1] = front[1];
+  up[4] = front[4];
+  up[7] = front[7];
+  front[1] = down[1];
+  front[4] = down[4];
+  front[7] = down[7];
+  down[1] = back[7];
+  down[4] = back[4];
+  down[7] = back[1];
+  back[7] = temp1;
+  back[4] = temp2;
+  back[1] = temp3;
+}
+
+void Cube::rotate_middle_rw() {
+  int temp1 = up[3];
+  int temp2 = up[4];
+  int temp3 = up[5];
+  up[3] = right[1];
+  up[4] = right[4];
+  up[5] = right[7];
+  right[1] = down[5];
+  right[4] = down[4];
+  right[7] = down[3];
+  down[5] = left[7];
+  down[4] = left[4];
+  down[3] = left[1];
+  left[7] = temp1;
+  left[4] = temp2;
+  left[1] = temp3;
+}
+
+void Cube::rotate_middle_gr() {
+  int temp1 = right[3];
+  int temp2 = right[4];
+  int temp3 = right[5];
+  right[3] = front[3];
+  right[4] = front[4];
+  right[5] = front[5];
+  front[3] = left[3];
+  front[4] = left[4];
+  front[5] = left[5];
+  left[3] = back[3];
+  left[4] = back[4];
+  left[5] = back[5];
+  back[3] = temp1;
+  back[4] = temp2;
+  back[5] = temp3;
+}
+
 void Cube::draw_cube() {
   fill_faces_to_cube();
   for (unsigned int i = 0; i < faces_of_cube.size(); i++) {
@@ -261,6 +315,11 @@ vector<int> Cube::get_vector_for_Lego() {
     }
   }
   return for_lego;
+}
+
+vector<vector<int>> Cube::get_faces_of_cube() {
+  fill_faces_to_cube();
+  return faces_of_cube;
 }
 
 Cube::~Cube() {

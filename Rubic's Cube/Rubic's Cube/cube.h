@@ -23,12 +23,16 @@ private:
 
 public:
   Cube();
+  vector<vector<int>> get_faces_of_cube();
   void rotate_front();
   void rotate_up();
   void rotate_back();
   void rotate_down();
   void rotate_right();
   void rotate_left();
+  void rotate_middle_gw();
+  void rotate_middle_rw();
+  void rotate_middle_gr();
   void draw_cube();
   bool is_ready();
   vector<int> get_vector_for_Lego();
