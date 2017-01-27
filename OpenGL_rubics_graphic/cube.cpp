@@ -204,6 +204,7 @@ void Cube::rotate_down() {
 }
 
 void Cube::rotate_right() {
+  //hibazdmeg
   if (!tr_back) trackback.push_back('R');
   int temp = right[0];
   right[0] = right[6];
