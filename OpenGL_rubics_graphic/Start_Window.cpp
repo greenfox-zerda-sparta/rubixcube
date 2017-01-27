@@ -18,7 +18,7 @@ void Start_Window::render() {
 
 Start_Window::~Start_Window() {
   SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(window);
+  //SDL_DestroyWindow(window);
   IMG_Quit();
   SDL_Quit();
 }
