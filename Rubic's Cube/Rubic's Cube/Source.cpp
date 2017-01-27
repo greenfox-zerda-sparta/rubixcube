@@ -1,5 +1,5 @@
 #include "cube.h"
-#include "Cube_Input.h"
+//#include "Cube_Input.h"
 #include "../Start_Window.h"
 
 bool is_inside(int x, int y, SDL_Rect current) {
