@@ -109,14 +109,28 @@ int main(int argc, char* argv[]) {
   primitive.load_texture("pics/yellow.bmp");
   User_input ui(WIDTH, HEIGHT);
   opgl.opengl_init(WIDTH, HEIGHT);
+  bool solver = false;
   bool running = true;
   while (running) {
-    ui.input_handler(running, my_cube);
+    ui.input_handler(running, solver, my_cube);
     opgl.opengl_sreenbuilder();
     cam.place_camera();
     cam.rotate_camera(ui.get_angle_x(), ui.get_angle_z());
-    //primitive.draw_flattened_cube(my_cube.get_vector_for_Lego(), 3);
-    primitive.draw_real_cube(my_cube.get_vector_for_Lego(), 3);
+
+    if (solver) {
+      SDL_Delay(800);
+      my_cube.undo_last_step();
+      primitive.draw_real_cube(my_cube.get_vector_for_Lego(), 3);
+      if (my_cube.trackback.empty()) {
+        solver = false;
+      }
+    }
+    else {
+      primitive.draw_real_cube(my_cube.get_vector_for_Lego(), 3);
+    }
+
+    
+    
     primitive.draw_background();
     opgl.opengl_display(screen);
   } 

@@ -27,7 +27,7 @@ User_input::User_input(int width, int height) : WINDOW_WIDTH(width), WINDOW_HEIG
 
 }
 
-void User_input::input_handler(bool& running, Cube& _cube) {
+void User_input::input_handler(bool& running, bool& solver, Cube& _cube) {
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
     case SDL_QUIT:
@@ -62,18 +62,20 @@ void User_input::input_handler(bool& running, Cube& _cube) {
         _cube.rotate_left();
         break;
       case SDLK_SPACE:
-        _cube.random_shuffle();
-        break;
-      case SDLK_s:
-        while (true) {
-          _cube.undo_last_step();
-          if (_cube.trackback.empty()) {
-            break;
-          }
+        //_cube.random_shuffle();
+        if (solver) {
+          solver = false;
+        }
+        else {
+          solver = true;
         }
         break;
+      case SDLK_s:
+        _cube.back_to_start();
+        solver = true;
+        break;
       case SDLK_BACKSPACE:
-        _cube.undo_last_step();
+        _cube.undo_last_step_to_start();
         break;
       case SDLK_ESCAPE:
         running = false;

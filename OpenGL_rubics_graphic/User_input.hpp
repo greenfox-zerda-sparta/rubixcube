@@ -21,7 +21,7 @@ private:
 public:
   User_input();
   User_input(int width, int height);
-  void input_handler(bool& running, Cube& _cube);
+  void input_handler(bool& running, bool& solver, Cube& _cube);
   int get_changing_x();
   int get_changing_y();
   int get_changing_mouse_x();
