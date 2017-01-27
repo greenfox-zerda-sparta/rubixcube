@@ -39,6 +39,8 @@ public:
   vector<int> get_vector_for_Lego();
   vector<char> trackback;
   void undo_last_step();
+  void back_to_start();
+  void undo_last_step_to_start();
   ~Cube();
 };
 
