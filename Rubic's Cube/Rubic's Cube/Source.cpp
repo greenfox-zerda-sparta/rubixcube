@@ -56,16 +56,24 @@ int main(int argc, char* argv[]) {
       case SDL_MOUSEBUTTONDOWN:
         SDL_GetMouseState(&x, &y);
         switch (which_button(x, y, buttons)) {
-        case 0:
+        case 0: {
           cout << "easy" << endl;
-
+          Cube mycube;
+          mycube.random_shuffle(5);
           break;
-        case 1:
+        }
+        case 1: {
           cout << "medium" << endl;
+          Cube mycube;
+          mycube.random_shuffle(10);
           break;
-        case 2:
+        }
+        case 2: {
           cout << "hard" << endl;
+          Cube mycube;
+          mycube.random_shuffle(20);
           break;
+        }
         }
         break;
       }

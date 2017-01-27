@@ -352,10 +352,10 @@ vector<int> Cube::get_vector_for_Lego() {
   return for_lego;
 }
 
-vector<vector<int>> Cube::get_faces_of_cube() {
+/*vector<vector<int>> Cube::get_faces_of_cube() {
   fill_faces_to_cube();
   return faces_of_cube;
-}
+}*/
 
 Cube::~Cube() {
 }

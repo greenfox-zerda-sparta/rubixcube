@@ -30,6 +30,9 @@ public:
   void rotate_down();
   void rotate_right();
   void rotate_left();
+  void rotate_middle_rw();
+  void rotate_middle_gw();
+  void rotate_middle_gr();
   void draw_cube();
   void fill_faces_to_cube();
   bool is_ready();
