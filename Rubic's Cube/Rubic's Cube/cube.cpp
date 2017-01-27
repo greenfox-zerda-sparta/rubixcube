@@ -2,12 +2,12 @@
 
 Cube::Cube() {
   srand(time(NULL));
-  random_shuffle();
+  fill_faces_to_cube();
   tr_back = false;
 }
 
 void Cube::random_shuffle() {
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < shuffle; i++) {
     int which_rotation = rand() % 6;
     switch (which_rotation) {
     case 0:
@@ -36,6 +36,40 @@ void Cube::random_shuffle() {
       break;
     }
   }
+  cout << "shuffle" << shuffle << endl;
+}
+
+void Cube::random_shuffle(int _user_shuffle) {
+  for (int i = 0; i < _user_shuffle; i++) {
+    int which_rotation = rand() % 6;
+    switch (which_rotation) {
+    case 0:
+      rotate_front();
+      cout << ",F ";
+      break;
+    case 1:
+      rotate_up();
+      cout << ",U ";
+      break;
+    case 2:
+      rotate_back();
+      cout << ",B ";
+      break;
+    case 3:
+      rotate_down();
+      cout << ",D ";
+      break;
+    case 4:
+      rotate_left();
+      cout << ",L ";
+      break;
+    case 5:
+      rotate_right();
+      cout << ",R ";
+      break;
+    }
+  }
+  cout << "shuffle" << _user_shuffle << endl;
 }
 
 void Cube::fill_faces_to_cube() {
@@ -267,8 +301,7 @@ vector<int> Cube::get_vector_for_Lego() {
 Cube::~Cube() {
 }
 
-void Cube::undo_last_step()
-{
+void Cube::undo_last_step() {
   tr_back = true;
   if(!trackback.empty()){
     char last_step = trackback[trackback.size() -1];
