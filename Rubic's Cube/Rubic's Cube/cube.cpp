@@ -401,3 +401,15 @@ void Cube::undo_last_step() {
   tr_back = false;
 }
 
+void Cube::back_to_start() {
+  while(trackback.size() > shuffle) {
+    undo_last_step();
+  }
+}
+
+void Cube::undo_last_step_to_start() {
+  if(trackback.size() > shuffle) {
+    undo_last_step();
+  }
+}
+

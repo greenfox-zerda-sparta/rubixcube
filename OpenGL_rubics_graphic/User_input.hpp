@@ -16,6 +16,8 @@ private:
   double angle_x;
   double angle_z;
   int repeat;
+
+
 public:
   User_input();
   User_input(int width, int height);
