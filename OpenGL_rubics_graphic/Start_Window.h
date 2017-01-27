@@ -2,8 +2,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-
-
 class Start_Window {
 public:
   SDL_Window* window = NULL;

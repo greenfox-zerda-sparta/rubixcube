@@ -24,6 +24,7 @@ private:
 public:
   Cube();
   void random_shuffle();
+  void random_shuffle(int);
   void rotate_front();
   void rotate_up();
   void rotate_back();

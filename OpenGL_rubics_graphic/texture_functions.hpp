@@ -26,6 +26,7 @@ void texture_init(GLuint &texture, char* image_name) {
   SDL_FreeSurface(surf); //Unload SDL's copy of the data; we don't need it anymore because OpenGL now stores it in the texture.
   /*blind and enable was here*/
 }
+
 void texture_blind_and_enable(GLuint &texture) {
   glBindTexture(GL_TEXTURE_2D, texture); //Tell OpenGL that all subsequent drawing operations should try to use the current 2D texture
   glEnable(GL_TEXTURE_2D);

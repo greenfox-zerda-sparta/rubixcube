@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
         switch (which_button(x, y, buttons)) {
         case 0: {
           cout << "easy" << endl;
+          SDL_DestroyWindow(swin.window);
           Cube mycube;
           mycube.random_shuffle(5);
           break;

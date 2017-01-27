@@ -1,5 +1,6 @@
 #include "User_input.hpp"
 
+
 User_input::User_input() : WINDOW_WIDTH(0), WINDOW_HEIGHT(0) {
   this->changing_x = 0;
   this->changing_y = 0;
@@ -10,6 +11,7 @@ User_input::User_input() : WINDOW_WIDTH(0), WINDOW_HEIGHT(0) {
   this->angle_x = 0;
   this->angle_z = 0;
   this->repeat = 1;
+
 }
 
 User_input::User_input(int width, int height) : WINDOW_WIDTH(width), WINDOW_HEIGHT(height) {
@@ -22,6 +24,7 @@ User_input::User_input(int width, int height) : WINDOW_WIDTH(width), WINDOW_HEIG
   this->angle_x = 0;
   this->angle_z = 0;
   this->repeat = 1;
+
 }
 
 void User_input::input_handler(bool& running, Cube& _cube) {
