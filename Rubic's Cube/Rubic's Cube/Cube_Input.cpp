@@ -1,14 +1,55 @@
 #include "Cube_Input.h"
 
-void Cube_Input::start_game() {
-  this->start = true;
-}
-
 Cube_Input::Cube_Input() {
   if (if_user_wants_input()) {
+    has_input = true;
     get_input();
   }
-  start_game();
+  else {
+    has_input = false;
+  }
+}
+
+bool Cube_Input::was_input() {
+  return has_input;
+}
+
+vector<vector<int>> Cube_Input::vomit_users_vector() {
+  return users_cube;
+}
+
+bool Cube_Input::if_user_wants_input() {
+  string what_wants = "";
+  cout << "do you want to add the cube's status by hand?\n<y/n>" << endl;
+  getline(cin, what_wants);
+  return what_wants == "y" ? true : false;
+}
+
+void Cube_Input::get_input() {  
+  char input;
+  cout << "Do you want to enter the difficulty lvl <D>\nor do you want to enter the cube's status manually <M>\nor you want both <B>?" << endl;
+  cin >> input;
+  switch (int(input)) {
+  case 68:
+    cout << "Difficulty setup:" << endl;
+    get_input_for_shuffle();
+    break;
+  case 78:
+    cout << "Cube setup manually:" << endl;
+    get_input_for_cube();
+    break;
+  case 66:
+    cout << "Both:" << endl;
+    get_input_for_shuffle();
+    get_input_for_cube();
+    break;
+  }
+}
+
+void Cube_Input::get_input_for_shuffle() {
+  cout << "enter the difficulty lvl:" << endl;
+  cin >> shuffle;
+  cout << shuffle << endl;
 }
 
 void Cube_Input::help() {
@@ -19,24 +60,14 @@ void Cube_Input::help() {
   cout << "every other character show this help again" << endl;
 }
 
-bool Cube_Input::if_user_wants_input() {
-  string what_wants = "";
-  cout << "do you want to add the cube's status by hand?\n<y/n>" << endl;
-  getline(cin, what_wants);
-  return what_wants == "y" ? true : false;
-}
-
-void Cube_Input::get_input() {
+void Cube_Input::get_input_for_cube() {
   cout << "please put the cube down, \nwhite centered face upside,\ngreen centered face faceing you" << endl << endl;
   help();
   cout << endl << "enter the colors one-by-one for the ";
   for (int i = 0; i < order.size(); i++) {
     cout << order[i] << " side" << endl;
-    if (!start) {
-      evaluate();
-    }
+    evaluate();
   }
-  start_game();
   cout << "finished" << endl;
 }
 
@@ -47,7 +78,6 @@ void Cube_Input::evaluate() {
     switch (int(color[0])) {
     case 81:
       cout << "quit user input\nstarting random cube..." << endl;
-      start_game();
       return;
     case 71:
       side.push_back(1);
@@ -77,6 +107,10 @@ void Cube_Input::evaluate() {
   }
   users_cube.push_back(side);
   side.clear();
+}
+
+int Cube_Input::get_shuffle() {
+  return shuffle;
 }
 
 Cube_Input::~Cube_Input() {
