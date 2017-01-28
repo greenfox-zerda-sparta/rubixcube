@@ -76,17 +76,30 @@ void ending(std::string pic_path) {
 }
 
 int main(int argc, char* argv[]) {
+ 
+
+ 
+  
   while (run) {
     Cube my_cube;
     bool cheater = false;
 
     //kristof bindzsi eleje
     {  Start_Window start_window;
+
+    ///SDL_Surface* temp_surface = IMG_Load("pics/green.bmp");
+   /// SDL_Texture* button_texture;
+   /// button_texture = SDL_CreateTextureFromSurface(start_window.get_renderer(), temp_surface);
+   /// SDL_FreeSurface(temp_surface);
+
     SDL_Event event;
     vector<SDL_Rect> buttons;
+
     SDL_Rect easy = { 40, 130, 150, 50 };
     buttons.push_back(easy);
     SDL_Rect medium = { 240, 130, 150, 50 };
+    ///SDL_RenderCopy(start_window.get_renderer(), button_texture, &medium, &medium);
+    ///SDL_RenderPresent(start_window.get_renderer());
     buttons.push_back(medium);
     SDL_Rect hard = { 450, 130, 150, 50 };
     buttons.push_back(hard);
@@ -104,7 +117,11 @@ int main(int argc, char* argv[]) {
           case SDLK_ESCAPE:
             start_running = false;
             break;
+          case SDLK_q:
+            break;         
           }
+
+
         case SDL_MOUSEBUTTONDOWN:
           SDL_GetMouseState(&x, &y);
           switch (which_button(x, y, buttons)) {
@@ -117,14 +134,14 @@ int main(int argc, char* argv[]) {
           }
           case 1: {
             ///cout << "medium" << endl;
-            //SDL_DestroyWindow(start_window.window);
+            SDL_DestroyWindow(start_window.window);
             my_cube.random_shuffle(10);
             start_running = false;
             break;
           }
           case 2: {
             ///cout << "hard" << endl;
-            //SDL_DestroyWindow(start_window.window);
+            SDL_DestroyWindow(start_window.window);
             my_cube.random_shuffle(20);
             start_running = false;
             break;
@@ -189,11 +206,11 @@ int main(int argc, char* argv[]) {
     //feco binzsi start
       {
         if (cheater) {
-          ending("onemore.jpg");
+          ending("pics/onemore.jpg");
          /// std::cout << "onemore run:" << run << std::endl;
         }
         else {
-          ending("youwon.jpg");
+          ending("pics/youwon.jpg");
         ///  std::cout << "you won run:" << run << std::endl;
         }
         //feco binzsi end

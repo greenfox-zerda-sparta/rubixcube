@@ -5,7 +5,7 @@ Start_Window::Start_Window() {
   IMG_Init(IMG_INIT_JPG);
   window = SDL_CreateWindow("Rubik's cube", 0, 30, 640, 480, 0);
   renderer = SDL_CreateRenderer(window, -1, 0);
-  surface = IMG_Load("startscreen.jpg");
+  surface = IMG_Load("pics/startscreen.jpg");
   texture = SDL_CreateTextureFromSurface(renderer, surface);
 }
 
@@ -13,6 +13,10 @@ void Start_Window::render() {
   SDL_RenderClear(renderer);
   SDL_RenderCopy(renderer, texture, NULL, NULL);
   SDL_RenderPresent(renderer);
+}
+
+SDL_Renderer * Start_Window::get_renderer() {
+  return this->renderer;
 }
 
 
