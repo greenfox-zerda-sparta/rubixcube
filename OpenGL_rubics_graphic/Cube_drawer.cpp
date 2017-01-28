@@ -114,7 +114,7 @@ void Cube_drawer::draw_real_cube(std::vector<int>& colors, int rubic_size) {
     glRotatef(90.0, 0.0, 0.0, 1.0);
     shift_x = middle_point * -1;
     shift_z = middle_point * 0;
-    shift_y = middle_point * 1;
+    shift_y = middle_point * -2;
     for (int z = 0 - shift_z - middle_point; z < rubic_size - shift_z - middle_point; z++) {
       for (int x = 0 - shift_x - middle_point; x < rubic_size - shift_x - middle_point; x++) {
         texture_blind_and_enable(textures[colors[index]]);
@@ -161,7 +161,7 @@ void Cube_drawer::draw_real_cube(std::vector<int>& colors, int rubic_size) {
     
     glRotatef(90.0, 0.0, 0.0, 1.0);
     shift_x = middle_point * 2;
-    shift_y = middle_point * 2;
+    shift_y = middle_point * -1;
     shift_z = middle_point * 0;
     for (int z = 0 - shift_z - middle_point; z < rubic_size - shift_z - middle_point; z++) {
       for (int x = 0 - shift_x - middle_point; x < rubic_size - shift_x - middle_point; x++) {

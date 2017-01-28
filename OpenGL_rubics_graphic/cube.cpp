@@ -12,31 +12,31 @@ void Cube::random_shuffle() {
     switch (which_rotation) {
     case 0:
       rotate_front();
-      cout << ",F ";
+     /// cout << ",F ";
       break;
     case 1:
       rotate_up();
-      cout << ",U ";
+   ///   cout << ",U ";
       break;
     case 2:
       rotate_back();
-      cout << ",B ";
+  ///    cout << ",B ";
       break;
     case 3:
       rotate_down();
-      cout << ",D ";
+  ///    cout << ",D ";
       break;
     case 4:
       rotate_left();
-      cout << ",L ";
+   ///   cout << ",L ";
       break;
     case 5:
       rotate_right();
-      cout << ",R ";
+  ///    cout << ",R ";
       break;
     }
   }
-  cout << "shuffle" << shuffle << endl;
+ /// cout << "shuffle" << shuffle << endl;
 }
 
 void Cube::random_shuffle(int _user_shuffle) {
@@ -46,31 +46,31 @@ void Cube::random_shuffle(int _user_shuffle) {
     switch (which_rotation) {
     case 0:
       rotate_front();
-      cout << ",F ";
+      ///cout << ",F ";
       break;
     case 1:
       rotate_up();
-      cout << ",U ";
+    ///  cout << ",U ";
       break;
     case 2:
       rotate_back();
-      cout << ",B ";
+   ///   cout << ",B ";
       break;
     case 3:
       rotate_down();
-      cout << ",D ";
+   ///   cout << ",D ";
       break;
     case 4:
       rotate_left();
-      cout << ",L ";
+  ///    cout << ",L ";
       break;
     case 5:
       rotate_right();
-      cout << ",R ";
+  ///    cout << ",R ";
       break;
     }
   }
-  cout << "shuffle" << _user_shuffle << endl;
+ /// cout << "shuffle" << _user_shuffle << endl;
 }
 
 void Cube::fill_faces_to_cube() {
@@ -323,11 +323,11 @@ void Cube::draw_cube() {
   for (unsigned int i = 0; i < faces_of_cube.size(); i++) {
     for (unsigned int j = 0; j < faces_of_cube[i].size(); j++) {
       if (j % 3 == 0) {
-        cout << endl;
+      ///  cout << endl;
       }
-      cout << faces_of_cube[i][j] << " ";
+    ///  cout << faces_of_cube[i][j] << " ";
     }
-    cout << endl << endl;
+   /// cout << endl << endl;
   }
 }
 

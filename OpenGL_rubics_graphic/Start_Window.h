@@ -11,6 +11,7 @@ public:
 public:
   Start_Window();
   void render();
+  SDL_Renderer* get_renderer();
   ~Start_Window();
 };
 
