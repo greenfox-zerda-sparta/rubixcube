@@ -189,6 +189,8 @@ int main(int argc, char* argv[]) {
     }
     //feco binzsi end
   }
+  //feco bindzsi end
+
   SDL_Quit();
   return 0;
 }
